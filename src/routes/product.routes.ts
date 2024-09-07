@@ -18,6 +18,6 @@ productRouter.route('/').post(authMiddleWare,upload.fields(
         },
     ]
 ), createproduct)
-productRouter.route('/').get(authMiddleWare, getproduct)
+productRouter.route('/').get( getproduct)
 
 export default productRouter;

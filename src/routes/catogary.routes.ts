@@ -4,7 +4,7 @@ import { authMiddleWare } from "../middlewares/auth.middleware";
 
 const catogaryRouter = Router();
 
-catogaryRouter.route('/').get(authMiddleWare,allCtogary)
+catogaryRouter.route('/').get(allCtogary)
 catogaryRouter.route('/').post(authMiddleWare ,createCtogary)
 catogaryRouter.route('/update-catogary').put(authMiddleWare,updateCtogary)
 

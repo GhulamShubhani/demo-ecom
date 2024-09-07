@@ -14,7 +14,12 @@ interface ProductInterface extends Document{
     displayImage:string;
     image:string[];
     quantity:number;
-
+    isOfferSell:boolean;
+    isFeature:boolean;
+    isOwn:boolean;
+    status:boolean;
+    isBlock:boolean;
+    isDeleted:boolean;
 }
 
 const ProductSchema = new Schema<ProductInterface>(
@@ -59,6 +64,30 @@ const ProductSchema = new Schema<ProductInterface>(
             type:Number,
             required:[true,"quantity id is required"],
             default:1
+        },
+        isOfferSell:{
+            type:Boolean,
+            default:false
+        },
+        isFeature:{
+            type:Boolean,
+            default:false
+        },
+        isOwn:{
+            type:Boolean,
+            default:false
+        },
+        status:{
+            type:Boolean,
+            default:false
+        },
+        isBlock:{
+            type:Boolean,
+            default:false
+        },
+        isDeleted:{
+            type:Boolean,
+            default:false
         },
     },{
         timestamps:true

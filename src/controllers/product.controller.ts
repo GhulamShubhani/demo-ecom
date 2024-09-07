@@ -17,7 +17,9 @@ interface MulterRequest extends Request {
 const createproduct = asyncHandler(async(req:Request,res:Response)=>{
     try {
         const multerReq = req as MulterRequest;
-        const {name,description1,description2,description3,catogaryId,brand,quantity} = req.body;
+        const {name,description1,description2,description3,catogaryId,brand,quantity,
+          isOfferSell,isFeature,isOwn,status,isBlock,isDeleted
+        } = req.body;
         if(!(name&&description1&&catogaryId&&brand&&quantity)) throw new ApiError(400,"fields is missing")
 
         const product_id = `product${name.split(" ")[0]}${Math.ceil(Math.random()*100)}${Date.now()}`
@@ -44,7 +46,13 @@ const createproduct = asyncHandler(async(req:Request,res:Response)=>{
             brand,
             displayImage:displayImagePathUrl,
             image:imagepathUrl,
-            quantity
+            quantity,
+            isOfferSell,
+            isFeature,
+            isOwn,
+            status,
+            isBlock,
+            isDeleted,
         })
 
         if (!productInstance) throw new ApiError(400, "something went wrong");
